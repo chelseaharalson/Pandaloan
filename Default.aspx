@@ -32,7 +32,7 @@
             <p>Best of all Pandaloan.com is free and easy to use. It only takes minutes to set up!!!</p>
             <br />
             <p>
-                <a class="btn btn-default" href="Login.aspx">Register &raquo;</a>
+                <a class="btn btn-default" href="UserNew.aspx">Register &raquo;</a>
             </p>
         </div>
     </div>
