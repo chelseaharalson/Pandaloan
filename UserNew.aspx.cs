@@ -21,7 +21,7 @@ public partial class UserNew : System.Web.UI.Page
         user.lastName = txbLastName.Text;
         user.address = txbAddress.Text;
         user.city = txbCity.Text;
-        user.state = txbState.Text;
+        user.state = ddl_State.SelectedValue;
         user.zipcode = txbZipCode.Text;
         if(user.emailExists(user.email))
         {
@@ -30,6 +30,7 @@ public partial class UserNew : System.Web.UI.Page
         else
         {
             user.create();
+            Response.Redirect("Summary.aspx");
         }
     }
 }
