@@ -29,13 +29,26 @@ public class User
 
     public bool login(string pEmail, string pPassword)
     {
+        bool success;
         SqlDataReader reader = null;
-        string sql = "SELECT 1 FROM Users WHERE email='" + pEmail + "' AND password='" + CreateMD5Hash(pPassword) + "'";
+        string sql = "SELECT userID, firstName, lastName FROM Users WHERE email='" + pEmail + "' AND password='" + CreateMD5Hash(pPassword) + "'";
 
         SQLfunctions sf = new SQLfunctions();
         reader = sf.selectSQL(sql);
 
-        return reader.HasRows;
+        success = reader.HasRows;
+        if (success)
+        {
+            UserInfo user = new UserInfo();
+            while (reader.Read())
+            {
+                user.userID = reader.GetInt32(0);
+                user.firstName = reader["firstName"].ToString();
+                user.lastName = reader["lastName"].ToString();
+            }
+            HttpContext.Current.Session.Add("pl_user", user);
+        }
+        return success;
     }
 
     public bool emailExists(string pEmail)

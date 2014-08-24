@@ -17,7 +17,7 @@ public partial class _Default : Page
         User user = new User();
         user.email = txbEmail.Text;
         user.password = txbPassword.Text;
-        if(user.login(user.email, user.password))
+        if (user.login(user.email, user.password))
         {
             Response.Redirect("Summary.aspx");
         }

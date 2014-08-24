@@ -23,7 +23,7 @@ public partial class UserNew : System.Web.UI.Page
         user.city = txbCity.Text;
         user.state = ddl_State.SelectedValue;
         user.zipcode = txbZipCode.Text;
-        if(user.emailExists(user.email))
+        if (user.emailExists(user.email))
         {
             Response.Write("<script>alert('Email already exists.');</script>");
         }
