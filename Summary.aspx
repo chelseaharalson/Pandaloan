@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <br />
+    <asp:Button runat="server" ID="btnAddLoan" Text="Add Loan" OnClick="onClick_btnAddLoan" />
+    <br /><br />
     <table>
         <tr><td><asp:Label runat="server" ID="lblFirstName" /> <asp:Label runat="server" ID="lblLastName" /></td></tr>
         <tr><td><asp:Label runat="server" ID="lblAddress" /></td></tr>

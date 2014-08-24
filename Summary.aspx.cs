@@ -17,4 +17,9 @@ public partial class Summary : System.Web.UI.Page
         lblState.Text = user.state;
         lblZipCode.Text = user.zipcode;
     }
+
+    protected void onClick_btnAddLoan(object sender, EventArgs e)
+    {
+        Response.Redirect("AddLoan.aspx");
+    }
 }
