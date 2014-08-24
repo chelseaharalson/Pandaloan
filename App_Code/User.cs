@@ -31,7 +31,7 @@ public class User
     {
         bool success;
         SqlDataReader reader = null;
-        string sql = "SELECT userID, firstName, lastName FROM Users WHERE email='" + pEmail + "' AND password='" + CreateMD5Hash(pPassword) + "'";
+        string sql = "SELECT userID, firstName, lastName, address, city, state, zipcode FROM Users WHERE email='" + pEmail + "' AND password='" + CreateMD5Hash(pPassword) + "'";
 
         SQLfunctions sf = new SQLfunctions();
         reader = sf.selectSQL(sql);
@@ -45,6 +45,10 @@ public class User
                 user.userID = reader.GetInt32(0);
                 user.firstName = reader["firstName"].ToString();
                 user.lastName = reader["lastName"].ToString();
+                user.address = reader["address"].ToString();
+                user.city = reader["city"].ToString();
+                user.state = reader["state"].ToString();
+                user.zipcode = reader["zipcode"].ToString();
             }
             HttpContext.Current.Session.Add("pl_user", user);
         }

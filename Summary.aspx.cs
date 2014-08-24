@@ -10,6 +10,11 @@ public partial class Summary : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         UserInfo user = (UserInfo)HttpContext.Current.Session["pl_user"];
-        Response.Write(user.firstName);
+        lblFirstName.Text = user.firstName;
+        lblLastName.Text = user.lastName;
+        lblAddress.Text = user.address;
+        lblCity.Text = user.city;
+        lblState.Text = user.state;
+        lblZipCode.Text = user.zipcode;
     }
 }
