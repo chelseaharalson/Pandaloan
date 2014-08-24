@@ -3,9 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <br />
     <table>
-        <tr><td>Email: </td> <td><asp:TextBox runat="server" ID="txbEmail" /></td></tr>
+        <tr><td><asp:ValidationSummary ID="vsCreate" runat="server" ShowSummary="False" ShowMessageBox="true" ValidationGroup="Create" /></td></tr>
+        <tr><td>Email: </td> <td>
+            <asp:TextBox runat="server" ID="txbEmail" />
+            <asp:RequiredFieldValidator ID="reqEmail" runat="server" ControlToValidate="txbEmail"
+            ErrorMessage="Enter email." ValidationGroup="Create" Text="*" />
+        </td></tr>
         <tr><td>&nbsp;</td></tr>
-        <tr><td>Password: </td> <td><asp:TextBox runat="server" ID="txbPassword" TextMode="password" /></td></tr>
+        <tr><td>Password: </td> <td>
+            <asp:TextBox runat="server" ID="txbPassword" TextMode="password" />
+            <asp:RequiredFieldValidator ID="reqPassword" runat="server" ControlToValidate="txbPassword"
+            ErrorMessage="Enter password." ValidationGroup="Create" Text="*" />
+        </td></tr>
         <tr><td>&nbsp;</td></tr>
         <tr><td>First Name: &nbsp;</td> <td><asp:TextBox runat="server" ID="txbFirstName" /></td></tr>
         <tr><td>&nbsp;</td></tr>
@@ -75,6 +84,6 @@
         <tr><td>Zip Code: </td> <td><asp:TextBox runat="server" ID="txbZipCode" /></td></tr>
     </table>
     <br />
-    <asp:Button runat="server" ID="btnCreate" Text="Create" OnClick="onClick_Create"/>
+    <asp:Button runat="server" ID="btnCreate" Text="Create" OnClick="onClick_Create" ValidationGroup="Create" />
 </asp:Content>
 
