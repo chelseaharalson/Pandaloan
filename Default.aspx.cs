@@ -11,4 +11,19 @@ public partial class _Default : Page
     {
 
     }
+
+    protected void onClick_Login(object sender, EventArgs e)
+    {
+        User user = new User();
+        user.email = txbEmail.Text;
+        user.password = txbPassword.Text;
+        if(user.login(user.email, user.password))
+        {
+            Response.Redirect("Summary.aspx");
+        }
+        else
+        {
+            Response.Write("<script>alert('Incorrect login. Please try again.');</script>");
+        }
+    }
 }

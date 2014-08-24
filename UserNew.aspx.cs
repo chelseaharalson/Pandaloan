@@ -23,6 +23,13 @@ public partial class UserNew : System.Web.UI.Page
         user.city = txbCity.Text;
         user.state = txbState.Text;
         user.zipcode = txbZipCode.Text;
-        user.create();
+        if(user.emailExists(user.email))
+        {
+            Response.Write("<script>alert('Email already exists.');</script>");
+        }
+        else
+        {
+            user.create();
+        }
     }
 }

@@ -4,7 +4,7 @@
     <br />
     <table>
         <tr><td>Email: </td> <td><asp:TextBox runat="server" ID="txbEmail" /></td></tr>
-        <tr><td>Password: </td> <td><asp:TextBox runat="server" ID="txbPassword" /></td></tr>
+        <tr><td>Password: </td> <td><asp:TextBox runat="server" ID="txbPassword" TextMode="password" /></td></tr>
         <tr><td>First Name: </td> <td><asp:TextBox runat="server" ID="txbFirstName" /></td></tr>
         <tr><td>Last Name: </td> <td><asp:TextBox runat="server" ID="txbLastName" /></td></tr>
         <tr><td>Address: </td> <td><asp:TextBox runat="server" ID="txbAddress" /></td></tr>

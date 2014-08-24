@@ -6,8 +6,8 @@
         <table>
             <tr>
                 <th>Email: &nbsp;&nbsp; <asp:TextBox runat="server" ID="txbEmail" /> &nbsp;&nbsp;&nbsp;</th>
-                <th>Password: &nbsp;&nbsp; <asp:TextBox runat="server" ID="txbPassword" /> &nbsp;&nbsp;&nbsp;</th>
-                <th><input type="submit" class="btn" value="Login"/></th>
+                <th>Password: &nbsp;&nbsp; <asp:TextBox runat="server" ID="txbPassword" TextMode="password" /> &nbsp;&nbsp;&nbsp;</th>
+                <th><asp:Button runat="server" ID="btnLogin" Text="Login" OnClick="onClick_Login" /></th>
             </tr>
         </table>
     </div>

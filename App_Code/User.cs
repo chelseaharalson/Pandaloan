@@ -38,6 +38,17 @@ public class User
         return reader.HasRows;
     }
 
+    public bool emailExists(string pEmail)
+    {
+        SqlDataReader reader = null;
+        string sql = "SELECT 1 FROM Users WHERE email='" + pEmail + "'";
+
+        SQLfunctions sf = new SQLfunctions();
+        reader = sf.selectSQL(sql);
+
+        return reader.HasRows;
+    }
+
     private string CreateMD5Hash(string input)
     {
         // Use input string to calculate MD5 hash
