@@ -23,5 +23,6 @@ public partial class AddLoan : System.Web.UI.Page
         addL.term = Convert.ToInt32(txbLoanTerm.Text);
         addL.rate = Convert.ToDouble(txbInterestRate.Text);
         addL.addLoan();
+        Response.Redirect("Summary.aspx");
     }
 }
