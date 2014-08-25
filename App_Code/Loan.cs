@@ -16,4 +16,16 @@ public class Loan
     public int term;
     public string grade;
     public bool active;
+
+    public void addLoan()
+    {
+        UserInfo user = (UserInfo)HttpContext.Current.Session["pl_user"];
+
+        string sql = "INSERT INTO Loan(userID, b_email, b_firstName, b_lastName, loanDate, amount, rate, term) VALUES("
+        + user.userID + ", '" + b_Email + "', '" + b_firstName + "', '" + b_lastName + "', '" + loanDate + "', " + amount 
+        + ", " + rate + ", " + term + ")";
+
+        SQLfunctions sf = new SQLfunctions();
+        sf.executeSQL(sql);
+    }
 }

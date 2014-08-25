@@ -24,7 +24,7 @@
         <tr><td>Loan Term: </td> <td>
             <asp:TextBox runat="server" ID="txbLoanTerm" />
             <asp:CompareValidator ID="cvLoanTerm" ControlToValidate="txbLoanTerm"
-                        Type="Double" Display="Dynamic" Operator="DataTypeCheck"
+                        Type="Integer" Display="Dynamic" Operator="DataTypeCheck"
                         ErrorMessage="Enter a number." Text="*" runat="server" ValidationGroup="AddLoan">
             </asp:CompareValidator>
         </td></tr>
@@ -41,11 +41,11 @@
             <asp:TextBox runat="server" ID="txbInterestRate" />
             <asp:CompareValidator ID="cvIR" ControlToValidate="txbInterestRate"
                         Type="Double" Display="Dynamic" Operator="DataTypeCheck"
-                        ErrorMessage="Enter a number." Text="*" runat="server" ValidationGroup="AddLoan">
+                        ErrorMessage="Enter a number." Text="*" runat="server" ValidationGroup="AddLoan" >
             </asp:CompareValidator>
         </td></tr>
     </table>
     <br />
-    <asp:Button runat="server" ID="btnAddLoan" Text="Add Loan" ValidationGroup="AddLoan" />
+    <asp:Button runat="server" ID="btnAddLoan" Text="Add Loan" ValidationGroup="AddLoan" OnClick="onClick_btnAddLoan" />
 </asp:Content>
 
