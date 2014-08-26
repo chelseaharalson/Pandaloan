@@ -9,5 +9,15 @@
         <tr><td><asp:Label runat="server" ID="lblAddress" /></td></tr>
         <tr><td><asp:Label runat="server" ID="lblCity" />, <asp:Label runat="server" ID="lblState" /> <asp:Label runat="server" ID="lblZipCode" /></td></tr>
     </table>
+    <br /><br />
+    <asp:GridView runat="server" ID="grdLoans" AutoGenerateColumns="false" DataKeyNames="loanID" >
+        <Columns>
+            <asp:TemplateField HeaderText="Date">
+                <ItemTemplate>
+                    <asp:Label ID="lblDate" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.loanDate") %>' />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 </asp:Content>
 

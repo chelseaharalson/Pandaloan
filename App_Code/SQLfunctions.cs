@@ -47,4 +47,25 @@ public class SQLfunctions
         }
         return reader;
     }
+
+    public DataSet selectSQLDataSet(string sql)
+    {
+        DataSet ds = new DataSet();
+        SqlDataAdapter adapter = null;
+        try
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["PLConnection"].ToString();
+            SqlConnection connect = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand();
+            connect.Open();
+            cmd = new SqlCommand(sql, connect);
+            adapter = new SqlDataAdapter(sql, connect);
+            adapter.Fill(ds);
+        }
+        catch (Exception e2)
+        {
+
+        }
+        return ds;
+    }
 }

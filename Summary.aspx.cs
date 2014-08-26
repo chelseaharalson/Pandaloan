@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,10 +17,29 @@ public partial class Summary : System.Web.UI.Page
         lblCity.Text = user.city;
         lblState.Text = user.state;
         lblZipCode.Text = user.zipcode;
+
+        if (!IsPostBack)
+        {
+            BindData();
+        }
     }
 
     protected void onClick_btnAddLoan(object sender, EventArgs e)
     {
         Response.Redirect("AddLoan.aspx");
+    }
+
+    protected void BindData()
+    {
+        UserInfo user = (UserInfo)HttpContext.Current.Session["pl_user"];
+        string sql = "SELECT loanID, b_firstName + ' ' + b_lastName AS name, loanDate, amount FROM Loan WHERE userID="
+            + user.userID.ToString()
+            + " ORDER BY loanDate";
+
+        SQLfunctions sf = new SQLfunctions();
+        DataSet ds = sf.selectSQLDataSet(sql);
+
+        grdLoans.DataSource = ds;
+        grdLoans.DataBind();
     }
 }
