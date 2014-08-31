@@ -7,9 +7,12 @@ using System.Web.UI.WebControls;
 
 public partial class AddLoan : System.Web.UI.Page
 {
+    string userID = "";
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        UserInfo user = (UserInfo)HttpContext.Current.Session["pl_user"];
+        userID = user.userID.ToString();
     }
 
     protected void onClick_btnAddLoan(object sender, EventArgs e)
@@ -22,6 +25,9 @@ public partial class AddLoan : System.Web.UI.Page
         addL.amount = Convert.ToDouble(txbLoanAmount.Text);
         addL.term = Convert.ToInt32(txbLoanTerm.Text);
         addL.rate = Convert.ToDouble(txbInterestRate.Text);
+        DateTime dt = DateTime.Now;
+        string num = userID + dt.ToString("ddMMyyyyhhmmss");
+        addL.loanNumber = num;
         addL.addLoan();
         Response.Redirect("Summary.aspx");
     }
