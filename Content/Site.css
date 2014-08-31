@@ -51,3 +51,19 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+/*GridView Header*/
+.GridViewHeaderStyle th {
+  font-weight: bold;
+  padding: 5px;
+  border-bottom: none;
+  border-top: 1px solid #CCC;
+}
+.GridViewHeaderStyle tr:hover td {
+  background: #E6E6E6;
+  cursor: pointer;
+}
+.GridViewHeaderStyle tr td {
+  padding: 5px;
+  border-bottom: 1px dotted #ccc;
+}

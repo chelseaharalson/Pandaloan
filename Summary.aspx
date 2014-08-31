@@ -10,7 +10,7 @@
         <tr><td><asp:Label runat="server" ID="lblCity" />, <asp:Label runat="server" ID="lblState" /> <asp:Label runat="server" ID="lblZipCode" /></td></tr>
     </table>
     <br /><br />
-    <asp:GridView runat="server" ID="grdLoans" AutoGenerateColumns="false" DataKeyNames="loanNumber" >
+    <asp:GridView runat="server" ID="grdLoans" AutoGenerateColumns="false" DataKeyNames="loanNumber" CssClass="GridViewHeaderStyle" Width="100%" GridLines="None" >
         <Columns>
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
@@ -38,6 +38,7 @@
 
             <asp:TemplateField HeaderText="Amount">
                 <ItemTemplate>
+                    <asp:Label ID="lblDollar" runat="server" Text="$" />
                     <asp:Label ID="lblAmount" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.amount") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
