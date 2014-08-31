@@ -32,7 +32,7 @@ public partial class Summary : System.Web.UI.Page
     protected void BindData()
     {
         UserInfo user = (UserInfo)HttpContext.Current.Session["pl_user"];
-        string sql = "SELECT loanID, b_firstName + ' ' + b_lastName AS name, loanDate, amount FROM Loan WHERE userID="
+        string sql = "SELECT loanNumber, b_firstName + ' ' + b_lastName AS name, CONVERT(VARCHAR(10), loanDate, 101) AS loanDate, CONVERT(varchar(12), amount, 1) AS amount FROM Loan NOLOCK WHERE userID="
             + user.userID.ToString()
             + " ORDER BY loanDate";
 
