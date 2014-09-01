@@ -2,19 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <br />
-    <asp:Button runat="server" ID="btnAddLoan" Text="Add Loan" OnClick="onClick_btnAddLoan" />
-    <br /><br />
     <table>
         <tr><td><asp:Label runat="server" ID="lblFirstName" /> <asp:Label runat="server" ID="lblLastName" /></td></tr>
         <tr><td><asp:Label runat="server" ID="lblAddress" /></td></tr>
         <tr><td><asp:Label runat="server" ID="lblCity" />, <asp:Label runat="server" ID="lblState" /> <asp:Label runat="server" ID="lblZipCode" /></td></tr>
     </table>
     <br /><br />
-    <asp:GridView runat="server" ID="grdLoans" AutoGenerateColumns="false" DataKeyNames="loanNumber" CssClass="GridViewHeaderStyle" Width="100%" GridLines="None" >
+    <asp:GridView runat="server" ID="grdLoans" AutoGenerateColumns="false" DataKeyNames="loanID" CssClass="GridViewHeaderStyle" Width="100%" GridLines="None" >
         <Columns>
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
-                    <asp:Button ID="btnSelect" runat="server" Text="Select" />
+                    <asp:Button ID="btnSelect" runat="server" Text="Select" OnClick="onClick_btnSelectLoan" />
                 </ItemTemplate>
            </asp:TemplateField>
 
@@ -44,5 +42,7 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    <br />
+    <asp:Button runat="server" ID="btnAddLoan" Text="Add Loan" OnClick="onClick_btnAddLoan" />
 </asp:Content>
 
